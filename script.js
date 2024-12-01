@@ -8,17 +8,20 @@ function volume_sphere() {
 
 		let nonNegative = new Promise((resolve,reject) => {
 			if(radius>=0){
+				console.log(radius);
 				resolve(radius);
 			}
 			else{
 				reject("The radius should not be negative");
 			}
 		}).then(res => {
-			let volumeOfSphere = 4/3 * Math.Pi * Math.pow(radius, 3);
-			console.log(volumeOfSphere);
+			let volumeOfSphere = ((4/3) * Math.PI * Math.pow(res, 3));
+			volume.value = volumeOfSphere.toFixed(3);
+		}).catch(err => {
+			console.log("The input value is invalid");
 		})
 		
-		volume.value = radius;
+		
 	})
 	
   
